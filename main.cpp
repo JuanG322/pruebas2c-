@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <string.h>
+#include <stdlib.h>
 using namespace std;
 
 int main()
@@ -16,6 +17,18 @@ int main()
         cout<<"6. Suma e 2 matrices"<<endl;
         cout<<"7. Verificar si la matriz es simetrica"<<endl;
         cout<<"8. Producto de 2 matrices 3x3"<<endl;
+        cout<<"Cadenas de caracters"<<endl;
+        cout<<"9. Basicos cadenas de caracteres"<<endl;
+        cout<<"10. Mostra en pantalla si tiene menos de 10 caracteres"<<endl;
+        cout<<"11. copiar un arreglo en otro"<<endl;
+        cout<<"12. comparar cadenas"<<endl;
+        cout<<"13. Compara si 2 cadenas son iguales y si no cual sere mayor alfabeticamente"<<endl;
+        cout<<"14. Unir 2 cadenas de caracteres"<<endl;
+        cout<<"15. Unir una cadena con otra que ingresa el usuario"<<endl;
+        cout<<"16. Verificar si una palabra es palindroma"<<endl;
+        cout<<"17. De minusculas a mayusculas y de minusculas a mayusculas"<<endl;
+        cout<<"18. Convertir cadena a numeros"<<endl;
+        cout<<"19. "<<endl;
         cout<<"0. Salir"<<endl;
 
         cout<<"Escoje: ";
@@ -216,6 +229,183 @@ int main()
                     cout << endl;
                 }
             cout<<endl;
+            break;
+        }
+
+        case 9:{
+            char nombre[]="juan", nombre2[10];
+            char saludo[] = "Hola";
+            char saludo2 [] = {'H','o','l','a','2'};
+            char palabra[20];
+
+            cout << "Ingrese algo de menos de 10 caracteres: ";
+            cin.ignore();
+            cin.getline(palabra, 20, '\n');
+            cout << "Palabra ingresada: " << palabra << endl;
+            cout << palabra <<" "<<saludo<<" "<<saludo2<<" "<<palabra<<endl;
+
+            int longitud = strlen(palabra);cout<<"Longitud de lacadena ingresada: "<<longitud<<endl;
+            strcpy(nombre2,nombre);
+            cout<<nombre2<<endl;
+            break;
+        }
+
+        case 10:{
+            char palabra [50];
+            cout << "Ingrese algo de menos de 10 caracteres: ";
+            cin.ignore();
+            cin.getline(palabra, 20, '\n');
+
+            int longitud = strlen(palabra);
+            if(longitud <= 10) cout<<"Ingresate la palabra: "<<palabra<<endl<<endl;
+            break;
+        }
+
+        case 11:{
+            char arreglo[50], arreglo2[50];
+            cout <<endl<< "Ingrese algo de menos de 50 caracteres: ";
+            cin.ignore();
+            cin.getline(arreglo, 50, '\n');
+
+            strcpy(arreglo2,arreglo);
+            cout<<arreglo2<<endl<<endl;
+
+            break;
+        }
+
+        case 12:{
+            char palabra[]="aHola",palabra2[]="Hola";
+
+            if(strcmp(palabra, palabra2) == 0){
+                cout<<endl<<"La cadenas son iguales"<<endl<<endl;
+            }else cout<<endl<<"Las cadenas son diferentes"<<endl<<endl;
+
+            if(strcmp(palabra, palabra2) > 0){
+                cout<<endl<<palabra<<" Esta despues alfebeticamente que "<<palabra2<<endl<<endl;
+            }else cout<<endl<<palabra2<<" Esta despues alfebeticamente que "<<palabra<<endl<<endl;
+            break;
+        }
+
+        case 13:{
+            char arreglo[50], arreglo2[50];
+            cout <<endl<< "Ingrese la cadena 1: ";
+            cin.ignore();
+            cin.getline(arreglo, 50, '\n');
+
+            cout <<endl<< "Ingrese la cadena 2: ";
+            //cin.ignore();
+            cin.getline(arreglo2, 50, '\n');
+
+            if(strcmp(arreglo, arreglo2) == 0){
+                cout<<endl<<"La cadenas son iguales"<<endl<<endl;
+            }
+            else{
+                if(strcmp(arreglo, arreglo2) > 0){
+                    cout<<endl<<arreglo<<" Esta mayor alfebeticamente que "<<arreglo2<<endl<<endl;
+                }else cout<<endl<<arreglo2<<" Esta mayor alfebeticamente que "<<arreglo<<endl<<endl;
+            }
+
+            break;
+        }
+
+        case 14:{
+            char cat1[] = "esto es una cadena ", cat2[] = " de ejemplo",cat3[30];
+
+            strcpy(cat3, cat1);
+            strcat(cat3, cat2);
+
+            cout<<"cadena: "<<cat3<<endl<<endl;
+
+            break;
+        }
+        case 15:{
+            char cadena1[] = "Hola que tal ", nombre[50];
+
+            cout<<"Ingrese su nombre: ";
+            cin.ignore();
+            cin.getline(nombre, 50, '\n');
+
+            cout<<strcat(cadena1, nombre)<<endl<<endl;
+
+            break;
+        }
+        case 16:{
+            char cat[]= "juan",cat2[]= "reconocer";
+            cout<<strrev(cat)<<" "<<strrev(cat2)<<endl;
+
+            if(strcmp(cat, strrev(cat)) == 0){
+                cout<<"Es palindroma"<<endl<<endl;
+            }else cout <<"No es palindroma"<<endl<<endl;
+            break;
+        }
+
+        case 17:{
+            char nombre[] = "Juan", nombre2[] = "Jose", nombre3[] = "GIRALDO", nombre4[50];
+            cout<<strupr(nombre)<<endl;
+            cout<<strlwr(nombre3)<<endl;
+
+            if(strcmp(nombre, nombre2) == 0) cout<<"Son igual"<<endl;
+            else cout<<"No son iguales"<<endl;
+
+            cout<<"ingrese su nombre en mayusculas: ";
+            cin.ignore();
+            cin.getline(nombre4, 50, '\n');
+
+            if(nombre4[0]== 'A')cout<<strlwr(nombre4)<<endl<<endl;
+            else cout<<nombre4<<endl;
+
+            break;
+        }
+
+        case 18:{
+            char cat[] = "123", cat2[] = "123.21", cat3[20], cat4[20];
+            int numero, numero3;float numero2, numero4;
+
+            numero = atoi(cat);
+            numero2 = atof(cat2);
+
+            cout<<numero<<endl;
+            cout<<numero2<<endl<<endl;
+
+            cout<<"Ingrese un numero entero: ";
+            cin.ignore();
+            cin.getline(cat3, 20, '\n');
+
+            cout<<"Ingrese un numero flotante: ";
+            cin.ignore();
+            cin.getline(cat4, 20, '\n');
+
+            numero3 = atoi(cat3);
+            numero4 = atof(cat4);
+
+            cout<<numero3<<endl;
+            cout<<numero4<<endl<<endl;
+            break;
+        }
+
+        case 19:{
+            char frase[30];
+            int vocal_a = 0, vocal_e = 0,vocal_i = 0, vocal_o = 0, vocal_u = 0;
+
+            cout<<"Ingresa una frase: ";
+            cin.ignore();
+            cin.getline(frase, 30, '\n');
+
+            for(i = 0;i < 30; i++){
+                switch (frase[i]) {
+
+                case 'a': vocal_a++;break;
+                case 'e': vocal_e++;break;
+                case 'i': vocal_i++;break;
+                case 'o': vocal_o++;break;
+                case 'u': vocal_u++;break;
+                }
+            }
+            cout<<"Vocal a:"<<vocal_a<<endl;
+            cout<<"Vocal e:"<<vocal_e<<endl;
+            cout<<"Vocal i:"<<vocal_i<<endl;
+            cout<<"Vocal o:"<<vocal_o-1<<endl;
+            cout<<"Vocal u:"<<vocal_u<<endl<<endl;
             break;
         }
         case 0:
