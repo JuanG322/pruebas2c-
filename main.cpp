@@ -28,8 +28,17 @@ int main()
         cout<<"16. Verificar si una palabra es palindroma"<<endl;
         cout<<"17. De minusculas a mayusculas y de minusculas a mayusculas"<<endl;
         cout<<"18. Convertir cadena a numeros"<<endl;
-        cout<<"19. "<<endl;
+        cout<<"19. Contar las letras de una frase"<<endl;
+        cout<<"Metodos"<<endl;
+        cout<<"20. Metodo borbuja"<<endl;
+        cout<<"21. Metodo por insercion"<<endl;
+        cout<<"22. Metodo por seleccion"<<endl;
+        cout<<"Busquedas"<<endl;
+        cout<<"23. Busqueda secuencial"<<endl;
+        cout<<"24. Busqueda binaria"<<endl;
         cout<<"0. Salir"<<endl;
+        cout<<"Estructuras"<<endl;
+        cout<<"25. "<<endl;
 
         cout<<"Escoje: ";
         cin>>i;
@@ -183,7 +192,7 @@ int main()
             cout<<"Digite el numeros de columnas: ";cin>>columnas;
 
             if(filas == columnas){
-                int matriz [filas][columnas], matriz2 [filas][columnas];
+                int matriz [filas][columnas];
                 for(int i = 0;i<filas;i++ ){//relleno la matriz
                     for(int j=0; j<columnas; j++ ){
                         cout<<"Digite un numero: ";cin>>matriz[i][j];
@@ -406,6 +415,151 @@ int main()
             cout<<"Vocal i:"<<vocal_i<<endl;
             cout<<"Vocal o:"<<vocal_o-1<<endl;
             cout<<"Vocal u:"<<vocal_u<<endl<<endl;
+            break;
+        }
+
+        case 20:{
+            int numeros[] = {4,1,3,5,2};
+            int i,j,aux;
+
+            for(i = 0; i<5; i++){
+                for(j=0; j<5; j++){
+                    if(numeros[j]>numeros[j+1]){
+                        aux = numeros[j];
+                        numeros[j]=numeros[j+1];
+                        numeros[j+1] = aux;
+                    }
+                }
+            }
+            cout<<"Orden ascendente "<<endl;
+
+            for (i = 0; i < 5; ++i) {
+                cout<<numeros[i]<<" "<<endl;
+            }
+
+            cout<<"Orden decendente "<<endl;
+            for (i = 5; i >= 0; i--) {
+                cout<<numeros[i]<<" "<<endl;
+            }
+            break;
+        }
+
+        case 21:{
+            int numeros[] = {4,1,3,5,2};
+            int i,pos,aux;
+
+            for(i = 0; i < 5; i++){
+                pos = i;
+                aux = numeros[i];
+                while((pos > 0) && (numeros[pos-1]>aux)){
+                    numeros[pos] = numeros[pos-1];
+                    pos--;
+                }
+                numeros[pos] = aux;
+            }
+
+            cout<<"Orden ascendente "<<endl;
+
+            for (i = 0; i < 5; ++i) {
+                cout<<numeros[i]<<" "<<endl;
+            }
+
+            cout<<"Orden decendente "<<endl;
+            for (i = 4; i >= 0; i--) {
+                cout<<numeros[i]<<" "<<endl;
+            }
+            break;
+        }
+
+        case 22:{
+            int numeros[] = {4,1,3,5,2};
+            int i,j,aux,min;
+
+            for(i = 0; i<5; i++){
+                min = i;
+                for(j = i+1; j<5;j++){
+                    if(numeros[j]<numeros[min])
+                        min = j;
+                }
+                aux = numeros[i];
+                numeros[i] = numeros[min];
+                numeros[min] = aux;
+            }
+
+            cout<<"Orden ascendente "<<endl;
+
+            for (i = 0; i < 5; ++i) {
+                cout<<numeros[i]<<" "<<endl;
+            }
+
+            cout<<"Orden decendente "<<endl;
+            for (i = 4; i >= 0; i--) {
+                cout<<numeros[i]<<" "<<endl;
+            }
+            break;
+        }
+
+        case 23:{
+            char b[]= {'e','o','a','i','u'};
+            int a[] = {4,1,3,5,2};
+            int i,dato,dato2;
+            bool bandera = false;
+            dato = 10;
+            dato2 = 'a';
+            i = 0;
+            while((bandera == false) && (i<5)){
+                if(a[i] == dato) bandera = true;
+                i++;
+            }
+            cout<<endl;
+            if(bandera == false) cout<<"El numero a buscar no existe en el arreglo"<<endl<<endl;
+            else cout<<"El numero "<<dato<<" a sido encontrado en la posicion "<<i-1<<endl<<endl;
+
+            i = 0;
+            while((bandera == false) && (i<5)){
+                if(b[i] == dato2) bandera = true;
+                i++;
+            }
+            cout<<endl;
+            if(bandera == false) cout<<"El caracter a buscar no existe en el arreglo"<<endl<<endl;
+            else cout<<"El caracter "<<dato2<<" a sido encontrado en la posicion "<<i-1<<endl<<endl;
+
+            break;
+        }
+
+        case 24:{
+            int numeros[] = {1,2,3,4,5};
+            int inf,sup,mid,dato;
+            bool bandera = false;
+
+            dato = 4;
+
+            inf = 0;
+            sup = 5;
+
+            while(inf <= sup){
+                mid = (inf+sup)/2;
+
+                if(numeros[mid] == dato){
+                    bandera = true;
+                    break;
+                }
+                if(numeros[mid] > dato){
+                    sup = mid;
+                    mid = (inf+sup)/2;
+                }
+                if(numeros[mid] < dato){
+                    inf = mid;
+                    mid = (inf+sup)/2;
+                }
+            }
+            cout<<endl;
+            if(bandera == true) cout<<"El numero "<<dato<<" a sido encontrado en la posicion: "<<mid<<endl<<endl;
+            else cout<<"El numero no a sido encontrado"<<endl<<endl;
+            break;
+        }
+
+        case 25:{
             break;
         }
         case 0:
